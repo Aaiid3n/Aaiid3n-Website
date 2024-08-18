@@ -32,3 +32,41 @@ drops[i]++;
 }
 draw();
 setInterval(draw, 70);
+
+
+var tv = $('.tv');
+function exit() {
+    $('.tv').addClass('collapse');
+    term.disable();
+}
+
+// ref: https://stackoverflow.com/q/67322922/387194
+var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+
+var term = $('#terminal').terminal(function(command, term) {
+    var cmd = $.terminal.parse_command(command);
+    if (cmd.name === 'exit') {
+        exit();
+    } else if (cmd.name === 'echo') {
+        term.echo(cmd.rest);
+    } else if (command !== '') {
+        try {
+            var result = __EVAL(command);
+            if (result && result instanceof $.fn.init) {
+                term.echo('<#jQuery>');
+            } else if (result && typeof result === 'object') {
+                tree(result);
+            } else if (result !== undefined) {
+                term.echo(new String(result));
+            }
+        } catch(e) {
+            term.error(new String(e));
+        }
+    }
+}, 
+);
+
+function clear() {
+    term.clear();
+}
+
