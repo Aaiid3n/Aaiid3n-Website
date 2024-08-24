@@ -8,7 +8,7 @@
  * Linceses under MIT license
  */
  .dialog {
-    background-color: #00a;
+
     position: relatieve;
     font-size: 12px;
     line-height: 14px;
@@ -123,7 +123,7 @@
 .dialog .box button.active,
 .dialog .box button.active:before,
 .dialog .box button.active:after {
-    background-color: #00a;
+    background-color: #0c7b46;
 }
 .dialog .box button.active {
     color: #ff5;
@@ -133,6 +133,6 @@
     color: #fff;
 }
 .dialog .box button.active.selected .mark {
-    color: #00a;
+    color: #0c7b46;
     background: #fff;
 }
