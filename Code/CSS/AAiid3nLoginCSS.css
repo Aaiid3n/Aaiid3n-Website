@@ -92,7 +92,7 @@ input:focus {
     margin-left: auto;
 }
 
-button {
+a.button {
     background: rgba(12, 123, 69, 0.255);
     color: black;
     padding: 10px;
