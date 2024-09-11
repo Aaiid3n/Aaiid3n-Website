@@ -1,138 +1,103 @@
-/**
- * jQuery Plugin for text based dialogs that look
- * like dialog linux command it use cmd plugin from
- * jQuery Terminal
- *
- * Copyright (c) 2017 Jakub Jankiewicz <http://jcubic.pl/me>
- *
- * Linceses under MIT license
- */
- .dialog {
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    position: relatieve;
-    font-size: 12px;
-    line-height: 14px;
+body {
     margin: 0;
-}
-.dialog, .dialog button {
-    font-family: monospace;
-}
-.dialog > :not(.box) {
-    display: none;
-}
-.dialog .box > .input .cmd {
-    float: none;
-    margin-bottom: -4px;
-    --color: #000;
-    --background: #aaa;
-    padding: 0;
-}
-.dialog .cmd > span:not(.prompt) {
-    float: none;
-}
-@supports (--css: variables) {
-    .dialog, .dialog button {
-        font-size: calc(var(--size, 1) * 12px);
-        line-height: calc(var(--size, 1) * 14px);
-    }
-}
-.dialog > .box {
-    background-color: #aaa;
-    float: left;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-box-shadow: calc(var(--char-width) * 2px) calc(var(--char-width) * 2px) black;
-    box-shadow: calc(var(--char-width) * 2px) calc(var(--char-width) * 2px) black;
-}
-.dialog .box .light {
-    color: #fff;
-}
-.dialog .box .dark {
-    color: #000;
-}
-.dialog .line {
-    float: left;
-    clear: both;
-    white-space: nowrap;
-}
-.dialog .box > .input .left,
-.dialog .box > .input .top,
-.dialog .box > .input .bottom,
-.dialog .box > .input .cmd,
-.dialog .box > .input .right {
-    display: inline-block;
-}
-.dialog .box > .buttons-line .left,
-.dialog .box > .buttons-line .buttons,
-.dialog .box > .buttons-line .right {
-    float: left;
-}
-.dialog .box .title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    overflow: hidden;
-}
-.dialog .box .title span {
-    background-color: #aaa;
-}
-.dialog .box .header span {
-    display: inline-block;
-}
-.dialog .box .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('backgroundImage.gif');
+    background-size: cover;
 }
-.dialog .box button {
-    margin: 0;
-    padding: 0;
+
+.glass-container {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.316);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgb(12, 123, 70);
+}
+
+.glass-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+.login-box {
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(12, 123, 70);
+    margin-top: 30px;
+    margin-bottom: -20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    margin-top: 25px;
     border: none;
-    color: #555;
-    min-width: 87px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid rgb(12, 123, 70);
+    color: rgb(12, 123, 70);
+    font-size: 13px;
 }
-.dialog .box button:active,
-.dialog .box button {
+
+input::placeholder {
+    color: rgb(12, 123, 70);
+}
+
+input:focus {
     outline: none;
 }
 
-.dialog .box button:before {
-    content: '<';
-    float: left;
+.options {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: white;
 }
-.dialog .box button:after {
-    content: '>';
-    float: right;
+
+.options input {
+    margin-right: 5px;
+    margin-top: 0px;
 }
-.dialog .box button:before,
-.dialog .box button:after {
-    display: inline-block;
-    color: #000;
+
+.options a {
+    text-decoration: none;
+    color: rgb(12, 123, 70);
+    margin-left: auto;
 }
-.dialog .box button,
-.dialog .box button:before,
-.dialog .box button:after {
-    background-color: transparent;
-}
-.dialog .box button:not(.active) .mark {
-    color: #a00;
-}
-.dialog .box button.active,
-.dialog .box button.active:before,
-.dialog .box button.active:after {
-    background-color: #0c7b46;
-}
-.dialog .box button.active {
-    color: #ff5;
-}
-.dialog .box button.active:before,
-.dialog .box button.active:after {
-    color: #fff;
-}
-.dialog .box button.active.selected .mark {
-    color: #0c7b46;
-    background: #fff;
+
+button {
+    background: rgb(12, 123, 70);
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
 }
