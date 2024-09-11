@@ -1,7 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    --font: msdos;
 }
 
 body {
@@ -16,13 +16,13 @@ body {
 
 .glass-container {
     width: 300px;
-    height: 350px;
+    height: 300px;
     position: relative;
     z-index: 1;
     background: rgba(0, 0, 0, 0.316);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgb(10, 99, 56);
     border-radius: 10px;
-    border: 1px solid rgb(12, 123, 70);
+    border: 1px solid rgba(12, 123, 69, 0.255);
 }
 
 .glass-container::before {
@@ -45,7 +45,7 @@ body {
 h2 {
     color: rgb(12, 123, 70);
     margin-top: 30px;
-    margin-bottom: -20px;
+    margin-bottom: -10px;
 }
 
 form {
@@ -60,7 +60,7 @@ input {
     border: none;
     border-radius: 10px;
     background: transparent;
-    border: 1px solid rgb(12, 123, 70);
+    border: 1px solid rgba(12, 123, 69, 0.255);
     color: rgb(12, 123, 70);
     font-size: 13px;
 }
@@ -78,7 +78,7 @@ input:focus {
     align-items: center;
     margin-top: 15px;
     font-size: 12px;
-    color: white;
+    color: rgb(12, 123, 70);
 }
 
 .options input {
@@ -93,7 +93,7 @@ input:focus {
 }
 
 button {
-    background: rgb(12, 123, 70);
+    background: rgba(12, 123, 69, 0.255);
     color: black;
     padding: 10px;
     border: none;
